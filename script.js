@@ -122,7 +122,7 @@ function populateCalendar(whichMonth) {
   hideOverflow(whichMonth);
 }
 
-populateCalendar(5);
+populateCalendar(month);
 // 0 = January of current year
 // 1 = February of current year
 // 3 = March of current year
