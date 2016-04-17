@@ -26,7 +26,7 @@ section {
   display: inline-block;
   height: 50%;
   left: 10%;
-  top: 0px;
+  top: 100px;
 }
 
 h2 {
@@ -69,7 +69,7 @@ li {
   text-align: right;
   text-decoration: none;
   display: inline-block;
-  height: 75px;
+  height: 100px;
   color: #999999;
   padding: 5px 10px;
 }
