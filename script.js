@@ -118,27 +118,27 @@ function highlightToday(whichMonth) {
   for (c = 1; c < 8; c++) {
     var week1LiToCheck = $('ul.week1 li:nth-child(' + c + ')').text();
     if ( Number(week1LiToCheck) == date) {
-      $('ul.week1 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week1 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
     var week2LiToCheck = $('ul.week2 li:nth-child(' + c + ')').text();
     if ( Number(week2LiToCheck) == date) {
-      $('ul.week2 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week2 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
     var week3LiToCheck = $('ul.week3 li:nth-child(' + c + ')').text();
     if ( Number(week3LiToCheck) == date) {
-      $('ul.week3 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week3 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
     var week4LiToCheck = $('ul.week4 li:nth-child(' + c + ')').text();
     if ( Number(week4LiToCheck) == date) {
-      $('ul.week4 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week4 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
     var week5LiToCheck = $('ul.week5 li:nth-child(' + c + ')').text();
     if ( Number(week5LiToCheck) == date) {
-      $('ul.week5 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week5 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
     var week6LiToCheck = $('ul.week6 li:nth-child(' + c + ')').text();
     if ( Number(week6LiToCheck) == date) {
-      $('ul.week6 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+      $('ul.week6 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400').css('background', '#e0e0e0');
     }
   }
 }
