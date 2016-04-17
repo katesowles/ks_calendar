@@ -1,4 +1,4 @@
-// DATE PREPARATION ////////////////////////////////////////////////////////////
+// Scroll to the very bottom and change the argument in PopulateCalendar() to change the month view.
 
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
@@ -122,4 +122,9 @@ function populateCalendar(whichMonth) {
   hideOverflow(whichMonth);
 }
 
-populateCalendar(1);
+populateCalendar(5);
+// 0 = January of current year
+// 1 = February of current year
+// 3 = March of current year
+// ...
+// month = Current Month
