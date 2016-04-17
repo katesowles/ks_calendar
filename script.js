@@ -71,30 +71,30 @@ function populateWeeks(whichMonth) {
   $('main ul:nth-child(6)').addClass('week6');
 }
 
+function firstDay(whichMonth) {
+  var parsed = Date.parse( ( months[whichMonth] ) + '1, ' + year );
+  return new Date (parsed).getDay();
+}
+
 function populateDays(whichMonth, blank) {
   var li      = '<li></li>';
 
   for (b = 0; b < 7; b++) {
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-6').text((b*7)-6-blank);
+    $('.week' + b + ' li:nth-child(7n-6)').text((b*7)-6-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-5').text((b*7)-5-blank);
+    $('.week' + b + ' li:nth-child(7n-5)').text((b*7)-5-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-4').text((b*7)-4-blank);
+    $('.week' + b + ' li:nth-child(7n-4)').text((b*7)-4-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-3').text((b*7)-3-blank);
+    $('.week' + b + ' li:nth-child(7n-3)').text((b*7)-3-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-2').text((b*7)-2-blank);
+    $('.week' + b + ' li:nth-child(7n-2)').text((b*7)-2-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-1').text((b*7)-1-blank);
+    $('.week' + b + ' li:nth-child(7n-1)').text((b*7)-1-blank);
     $('.week' + b).append(li);
-    $('.week' + b + ' li:nth-child(7n-0').text((b*7)-0-blank);
+    $('.week' + b + ' li:nth-child(7n-0)').text((b*7)-0-blank);
   }
-}
-
-function firstDay(whichMonth) {
-  var parsed = Date.parse( (whichMonth + 1 )+ '-1-2016' );
-  return new Date (parsed).getDay();
 }
 
 function hideOverflow(whichMonth) {
