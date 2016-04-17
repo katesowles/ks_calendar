@@ -1,8 +1,9 @@
 // DATE PREPARATION ////////////////////////////////////////////////////////////
 
-var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
-var daysPerMonth = ['31', '28', '31', '30', '31', '30', '31', '31', '30', '31', '30', '31'] // doesn't take leap years into account, feb = 29
 var weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+var days = [ 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31 ]
+var daysPerMonth = [ 31,28,31,30,31,30,31,31,30,31,30,31 ] // doesn't take leap years into account, feb = 29
 
 var sun = 0;
 var mon = 1;
@@ -20,52 +21,105 @@ var day   = today.getDay();
 var wday  = weekdays[today.getDay()].substring(0,3);
 var daysLeft = daysPerMonth[month] - date;
 
-var section = '<section></section>';
-var header  = '<header></header>';
-var hgroup  = '<hgroup></hgroup>';
-var main    = '<main></main>';
-var h2      = '<h2></h2>';
-var h4      = '<h4></h4>';
-var div     = '<div></div>';
-var ul      = '<ul></ul>';
-var li      = '<li></li>';
 
 // APPENDING TO THE DOM ////////////////////////////////////////////////////////
 
-$('body').prepend(section);
-$('section').append(header);
-$('header').append(h2);
-$('h2').text(months[month]);
+function populateHeader(whichMonth) {
+  var section = '<section></section>';
+  var header  = '<header></header>';
+  var hgroup  = '<hgroup></hgroup>';
+  var main    = '<main></main>';
+  var h2      = '<h2></h2>';
+  var h4      = '<h4></h4>';
 
-$('section').append(hgroup);
-$('hgroup').append(h4);
-$('h4:nth-child(1)').text(weekdays[0].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(2)').text(weekdays[1].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(3)').text(weekdays[2].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(4)').text(weekdays[3].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(5)').text(weekdays[4].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(6)').text(weekdays[5].substring(0,3));
-$('hgroup').append(h4);
-$('h4:nth-child(7)').text(weekdays[6].substring(0,3));
+  $('body').prepend(section);
+  $('section').append(header);
+  $('header').append(h2);
+  $('h2').text(months[whichMonth] + " " + year);
+  $('section').append(hgroup);
+  $('hgroup').append(h4);
+  $('h4:nth-child(1)').text(weekdays[0].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(2)').text(weekdays[1].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(3)').text(weekdays[2].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(4)').text(weekdays[3].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(5)').text(weekdays[4].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(6)').text(weekdays[5].substring(0,3));
+  $('hgroup').append(h4);
+  $('h4:nth-child(7)').text(weekdays[6].substring(0,3));
+  $('section').append(main);
+}
 
-$('section').append(main);
-$('main').append(ul);
+function populateWeeks(whichMonth) {
+  var ul      = '<ul></ul>';
 
-function addRemainingDays(whichMonth) {
-  for (j = 0; j = daysPerMonth[whichMonth]; j++) {
-    $('ul').append(li);
-      $('ul li:nth-child(l)').text('l');
+  $('main').append(ul);
+  $('main ul:nth-child(1)').addClass('week1');
+  $('main').append(ul);
+  $('main ul:nth-child(2)').addClass('week2');
+  $('main').append(ul);
+  $('main ul:nth-child(3)').addClass('week3');
+  $('main').append(ul);
+  $('main ul:nth-child(4)').addClass('week4');
+  $('main').append(ul);
+  $('main ul:nth-child(5)').addClass('week5');
+  $('main').append(ul);
+  $('main ul:nth-child(6)').addClass('week6');
+}
+
+function populateDays(whichMonth, blank) {
+  var li      = '<li></li>';
+
+  for (b = 0; b < 7; b++) {
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-6').text((b*7)-6-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-5').text((b*7)-5-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-4').text((b*7)-4-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-3').text((b*7)-3-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-2').text((b*7)-2-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-1').text((b*7)-1-blank);
+    $('.week' + b).append(li);
+    $('.week' + b + ' li:nth-child(7n-0').text((b*7)-0-blank);
   }
-  return day + daysLeft;
-};
+}
 
+function firstDay(whichMonth) {
+  var parsed = Date.parse( (whichMonth + 1 )+ '-1-2016' );
+  return new Date (parsed).getDay();
+}
 
+function hideOverflow(whichMonth) {
 
+  for (c = 1; c < 8; c++) {
+    var week1LiToCheck = $('ul.week1 li:nth-child(' + c + ')').text();
+    if ( Number(week1LiToCheck) < 1) {
+      $('ul.week1 li:nth-child(' + c + ')').css('display', 'none');
+    }
+    var week5LiToCheck = $('ul.week5 li:nth-child(' + c + ')').text();
+    if ( Number(week5LiToCheck) > daysPerMonth[whichMonth]) {
+      $('ul.week5 li:nth-child(' + c + ')').css('display', 'none');
+    }
+    var week6LiToCheck = $('ul.week6 li:nth-child(' + c + ')').text();
+    if ( Number(week6LiToCheck) > daysPerMonth[whichMonth]) {
+      $('ul.week6 li:nth-child(' + c + ')').css('display', 'none');
+    }
+  }
+}
 
-addRemainingDays(3);
-dayCount();
+function populateCalendar(whichMonth) {
+  populateHeader(whichMonth);
+  populateWeeks(whichMonth);
+  populateDays(whichMonth, firstDay(whichMonth));
+  hideOverflow(whichMonth);
+}
+
+populateCalendar(1);

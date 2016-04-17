@@ -53,11 +53,18 @@ h4 {
 }
 
 ul {
-  width: 100%;
+  width: ;
   height: 50px;
   list-style-type: none;
-  /*display: flex wrap;
-  flex-wrap: wrap;*/
+  display: flex;
+}
+
+ul:first-of-type {
+  justify-content: flex-end;
+}
+
+ul:last-of-type {
+  justify-content: flex-start;
 }
 
 li {
@@ -65,21 +72,31 @@ li {
   text-align: right;
   text-decoration: none;
   display: inline-block;
-  height: 50px;
+  height: 100%;
   color: red;
   padding: 0 5px;
-  float: left;
-  /*flex-direction: row-reverse;*/
 }
 
-li:nth-child(7n), li:nth-child(7n-1){
+li:nth-child(7n), li:nth-child(7n-6){
   background-color: #e6e6e6;
 }
 
 li:nth-child(n+0):nth-child(n+8) {
 }
 
-.blankDays {
-  background-color: #e6e6e6;
-  /*color: transparent;*/
-}
+/* width checker start */
+/*#widthChecker {
+  background-color: rgba(0,255,255,0.2);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-family: sans-serif;
+  font-size: .75em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  height: 30px;
+  line-height: 30px;
+}*/
+/* width checker end */
