@@ -98,7 +98,6 @@ function firstDay(whichMonth) {
 }
 
 function hideOverflow(whichMonth) {
-
   for (c = 1; c < 8; c++) {
     var week1LiToCheck = $('ul.week1 li:nth-child(' + c + ')').text();
     if ( Number(week1LiToCheck) < 1) {
@@ -115,11 +114,41 @@ function hideOverflow(whichMonth) {
   }
 }
 
+function highlightToday(whichMonth) {
+  for (c = 1; c < 8; c++) {
+    var week1LiToCheck = $('ul.week1 li:nth-child(' + c + ')').text();
+    if ( Number(week1LiToCheck) == date) {
+      $('ul.week1 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+    var week2LiToCheck = $('ul.week2 li:nth-child(' + c + ')').text();
+    if ( Number(week2LiToCheck) == date) {
+      $('ul.week2 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+    var week3LiToCheck = $('ul.week3 li:nth-child(' + c + ')').text();
+    if ( Number(week3LiToCheck) == date) {
+      $('ul.week3 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+    var week4LiToCheck = $('ul.week4 li:nth-child(' + c + ')').text();
+    if ( Number(week4LiToCheck) == date) {
+      $('ul.week4 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+    var week5LiToCheck = $('ul.week5 li:nth-child(' + c + ')').text();
+    if ( Number(week5LiToCheck) == date) {
+      $('ul.week5 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+    var week6LiToCheck = $('ul.week6 li:nth-child(' + c + ')').text();
+    if ( Number(week6LiToCheck) == date) {
+      $('ul.week6 li:nth-child(' + c + ')').css('color', '#666').css('font-weight', '400');
+    }
+  }
+}
+
 function populateCalendar(whichMonth) {
   populateHeader(whichMonth);
   populateWeeks(whichMonth);
   populateDays(whichMonth, firstDay(whichMonth));
   hideOverflow(whichMonth);
+  highlightToday(whichMonth);
 }
 
 populateCalendar(month);
