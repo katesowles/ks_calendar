@@ -1,0 +1,31 @@
+{
+  "name": "calendar",
+  "version": "1.0.0",
+  "description": "Needing practice with jQuery and DOM traversal I decided to build a calendar, now I'm updating it.",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "lint": "gulp lint",
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/katesowles/ks_calendar.git"
+  },
+  "author": "Kate Sowles",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/katesowles/ks_calendar/issues"
+  },
+  "homepage": "https://github.com/katesowles/ks_calendar#readme",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.10.2",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^2.0.0",
+    "gulp-mocha": "^2.2.0",
+    "mocha": "^2.4.5"
+  },
+  "dependencies": {
+  }
+}
