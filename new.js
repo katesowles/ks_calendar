@@ -40,8 +40,9 @@ function populateDays(blankDays) {  // fills every week with days, takes into ac
     for (var d = 0; d < 7; d++) { // cycles to add 7 days to each week
       $(`.week${c}`).append(li);
     }
-    for (var e = 0; e < 7; e++) { // cycles to add text to each li with date
-      $(`.week${c} li:nth-child(${(e+1)})`).text((c*7) - (7-(1*(e+1)) - blankDays));
+    for (var e = 1; e <= 7; e++) { // cycles to add text and ids to each li with date
+      $(`.week${c} li:nth-child(${(e)})`).text((c*7) - (7-(1*(e)) - blankDays));
+      $(`.week${c} li:nth-child(${(e)})`).attr('id', ((c*7) - (7-(1*(e)) - blankDays)));
     }
   }
 }
@@ -60,15 +61,8 @@ function hideOverflow() { // hides the unused days of the month
   }
 }
 
-function highlightToday() {
-  for (var h = 1; h < 6; h++) { // to cycle through each week
-    for (var i = 1; i < 8; i++ ) {  // to cycle through the days of each week
-      var liToCheck = Number($('ul.week' + h + ' li:nth-child(' + i + ')').text());
-      if ( liToCheck == moment().format('D') ) {  // if li matches the current date, highlight it.
-        $(`ul.week${h} li:nth-child(${i})`).css('font-weight', '400').css('background', '#e0e0e0');
-      }
-    }
-  }
+function highlightToday() { // relying on the ids added during populateDays() to highlight today.
+  $(`#${moment().format('D')}`).css('font-weight', '400').css('background', '#e0e0e0');
 }
 
 function populateCalendar() {
