@@ -1,7 +1,6 @@
 moment.locale();
 
 function populateHeader() { // populates the month, year, and days of week
-  const body    = '<body></body>';
   const section = '<section></section>';
   const header  = '<header></header>';
   const hgroup  = '<hgroup></hgroup>';
@@ -26,7 +25,6 @@ function populateWeeks() {  // populates the number of weeks in the month
   for (var b = 0; b < 6; b++) {
     $('main').append(ul);
     $(`main ul:nth-child(${b})`).addClass(`week${b}`);
-
   }
 }
 
@@ -41,8 +39,8 @@ function populateDays(blankDays) {  // fills every week with days, takes into ac
       $(`.week${c}`).append(li);
     }
     for (var e = 1; e <= 7; e++) { // cycles to add text and ids to each li with date
-      $(`.week${c} li:nth-child(${(e)})`).text((c*7) - (7-(1*(e)) - blankDays));
-      $(`.week${c} li:nth-child(${(e)})`).attr('id', ((c*7) - (7-(1*(e)) - blankDays)));
+      $(`.week${c} li:nth-child(${(e)})`).text((c*7) - (7-(1*(e)) + 1 * blankDays));
+      $(`.week${c} li:nth-child(${(e)})`).attr('id', ((c*7) - (7-(1*(e)) + 1 * blankDays)));
     }
   }
 }
@@ -52,7 +50,6 @@ function hideOverflow() { // hides the unused days of the month
   for (var f = 1; f < 6; f++) { // to cycle through each week
     for (var g = 1; g < 8; g++ ) {  // to cycle through the days of each week
       var liToCheck = Number($(`ul.week${f} li:nth-child(${g})`).text());
-
       var lastDayOfMonth = moment().endOf('month').format('D');
       if ( liToCheck < 1 || liToCheck > lastDayOfMonth ) {  // if day is less than one, or greater than the last day of the month, hide it.
         $(`ul.week${f} li:nth-child(${g})`).css('display', 'none');
