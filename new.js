@@ -1,15 +1,13 @@
 moment.locale();
 
 function populateHeader() { // populates the month, year, and days of week
-  const section = '<section></section>';
   const header  = '<header></header>';
   const hgroup  = '<hgroup></hgroup>';
   const main    = '<main></main>';
   const h2      = '<h2></h2>';
   const h4      = '<h4></h4>';
-  $('body').prepend(section);
   $('section').append(header);
-  $('header').append(h2);
+  $('header').prepend(h2);
   $('h2').text(moment().format('MMMM YYYY'));
   $('section').append(hgroup);
   for (var a = 0; a < 7; a++) {
